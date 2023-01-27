@@ -1,7 +1,7 @@
 const gameEngine = new GameEngine();
 
 const ASSET_MANAGER = new AssetManager();
-ASSET_MANAGER.queueDownload("./sprites/")
+ASSET_MANAGER.queueDownload("./sprites/SlimeSheet.png")
 
 ASSET_MANAGER.downloadAll(() => {
 

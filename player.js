@@ -9,13 +9,12 @@ class Player {
         this.speed = 50;
         this.x = 0;
         this.y = 0;
-        this.index = 6;
+        this.index = 0;
         this.canvasWidth = 1000;
         this.canvasHeight = 732;
 
         // Get the spriteshhett
-        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/");
-        this.animator = new Animator(this.spritesheet, 0, 32, 32, 32, 7, 0.2);
+        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/SlimeSheet.png");
 
         // Get the animations
         this.animations = [];
@@ -25,11 +24,71 @@ class Player {
     // This method will get all the animations.
     getAnimations() {
 
+        // looking right idle
+        this.animations[0] =  new Animator(this.spritesheet, 0, 0, 32, 32, 1, 1000);
+
+        // Moving right 
+        this.animations[1] =  new Animator(this.spritesheet, 0, 0, 32, 32, 2,  0.5);
+
+        // Left Idle
+        this.animations[2] =  new Animator(this.spritesheet, 64, 0, 32, 32, 1,  1000);
+
+        // Moving left
+        this.animations[3] =  new Animator(this.spritesheet, 64, 0, 32, 32, 2,  0.5);
+
+        // Back Idle
+        this.animations[4] =  new Animator(this.spritesheet, 128, 0, 32, 32, 1,  1000);
+
+        // Moving back
+        this.animations[5] =  new Animator(this.spritesheet, 128, 0, 32, 32, 2,  0.5);
+
     }
 
     // This is the update method called on each frame.
     update() {
 
+        // Dont let the player go off screen(x direction)
+        if(this.x > this.canvasWidth) {
+            this.x = this.canvasWidth;
+        }
+
+        if(this.x < 0) {
+            this.x = 0;
+        }
+
+        // Dont let the player go off screen(y direction)
+        if(this.y > this.canvasHeight) {
+            this.y = this.canvasHeight;
+        }
+
+        if(this.y < 0) {
+            this.y = 0;
+        }
+
+        // Update based on player movement.
+        if (this.game.keys["d"] || this.game.keys["D"]) {
+            this.x += this.speed * this.game.clockTick;
+           this.index = 1;
+        } else if (this.game.keys["a"] || this.game.keys["A"]) {
+            this.x -= this.speed * this.game.clockTick;
+           this.index = 3;
+        } else if (this.game.keys["w"] || this.game.keys["W"]) {
+            this.y -= this.speed * this.game.clockTick;
+            this.index = 5;
+        } else if (this.game.keys["s"] || this.game.keys["S"]) {
+            this.y += this.speed * this.game.clockTick;
+            this.index = 1;
+        } else {
+
+            // If the player is not pressing a key
+            if(this.index == 1) {
+                this.index = 0;
+            } else if(this.index == 3) {
+                this.index = 2;
+            } else if(this.index == 5) {
+                this.index = 4;
+            } 
+        }
     };
 
     // This method will draw the Character.
