@@ -8,3 +8,6 @@ Walk Left: a <br>
 Walk Right: a <br>
 Walk Down: s <br>
 Walk Up: w <br>
+
+<p align = "center"> Player </p>
+
