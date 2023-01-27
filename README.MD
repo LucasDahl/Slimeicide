@@ -1,4 +1,4 @@
-##Slimeicide
+<p align = "center"> # Slimeicide </p>
 
 A small game about slimes.
 
