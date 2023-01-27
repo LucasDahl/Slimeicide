@@ -1,8 +1,6 @@
 <p align = "center"> Slimeicide </p>
 
-A small game about slimes.
-
-check out current game play [here](https://lucasdahl.github.io/Slimeicide/)!
+A small game about slimes. Check out current game play [here](https://lucasdahl.github.io/Slimeicide/)!
 
 <p align = "center"> Controls </p>
 
