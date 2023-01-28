@@ -8,10 +8,10 @@ A small game about slimes. Check out current game play [here](https://lucasdahl.
 <h1 align = "center"> Controls </h1>
 
 <p align = "center">
-Walk Left: a <br>
-Walk Right: a <br>
-Walk Down: s <br>
-Walk Up: w <br>
+Walk Left: A <br>
+Walk Right: D<br>
+Walk Down: S <br>
+Walk Up: W <br>
 </p>
 
 <h1 align = "center"> Player </h1>
