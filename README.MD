@@ -1,8 +1,7 @@
 <h1 align = "center"> Slimeicide </h1>
 
-<p align = "center">
 A small game about slimes. Check out current game play [here](https://lucasdahl.github.io/Slimeicide/)!
-</p>
+
 
 <h1 align = "center"> Controls </h1>
 
