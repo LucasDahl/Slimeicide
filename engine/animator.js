@@ -2,10 +2,10 @@
 class Animator {
 
     // This is the constructor for the character
-    constructor(spritesheet, xStart, yStart, width, height, frameCount, frameDuration) {
+    constructor(spritesheet, xStart, yStart, width, height, frameCount, frameDuration, loop) {
 
         // Copy all of the paramters into the object.
-        Object.assign(this, {spritesheet, xStart, yStart, width, height, frameCount, frameDuration});
+        Object.assign(this, {spritesheet, xStart, yStart, width, height, frameCount, frameDuration,});
 
         // Set the fields
         this.elapsedTime = 0;
@@ -13,22 +13,29 @@ class Animator {
     };
 
     // This is the draw frame method
-    drawFrame(tick, ctx, x, y) {
+    drawFrame(tick, ctx, x, y, scale) {
 
         // Properties
         this.elapsedTime += tick;
         const frame = this.currentFrame();
 
         // Reset the time so the animation loops
-        if(this.elapsedTime > this.totalTime) {
+        if(this.elapsedTime >= this.totalTime) {
             this.elapsedTime -= this.totalTime;
         };
+        // if (this.isDone()) {
+        //     if (this.loop) {
+        //         this.elapsedTime -= this.totalTime;
+        //     } else {
+        //         return;
+        //     }
+        // }
 
         ctx.drawImage(this.spritesheet,
             this.xStart + (this.width * frame), this.yStart,
             this.width, this.height,
             x, y,
-            this.width, this.height);
+            this.width * scale, this.height * scale);
 
     };
 
