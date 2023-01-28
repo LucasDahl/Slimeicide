@@ -11,4 +11,4 @@ Walk Up: w <br>
 
 <p align = "center"> Player </p>
 
-<p align = "center"> ![Players](https://github.com/LucasDahl/Slimeicide/blob/main/sprites/SlimeProfileSheet.png =200x400)</p>
+<p align = "center"> <img src="https://github.com/LucasDahl/Slimeicide/blob/main/sprites/SlimeProfileSheet.png" width="400" height="250">Player</p>
