@@ -1,10 +1,8 @@
 <h1 align = "center"> Slimeicide </h1>
 
-<p align = "center">
 
-A small game about slimes. Check out current game play [here](https://lucasdahl.github.io/Slimeicide/)!
+A small game about slimes. Check out current game play [here](https://lucasdahl.github.io/Slimeicide/)! The game is a simple game in which the player will collect items(currently slimes balls). The end game is a simple multiplayer game were the players will race. In the future I will try to expand the game.
 
-</p>
 
 
 <h1 align = "center"> Controls </h1>
