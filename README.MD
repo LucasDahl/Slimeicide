@@ -1,13 +1,15 @@
-<p align = "center"> Slimeicide </p>
+<h1 align = "center"> Slimeicide </h1>
 
 A small game about slimes. Check out current game play [here](https://lucasdahl.github.io/Slimeicide/)!
 
-<p align = "center"> Controls </p>
+<h1 align = "center"> Controls </h1>
 
+<p align = "center">
 Walk Left: a <br>
 Walk Right: a <br>
 Walk Down: s <br>
 Walk Up: w <br>
+</p>
 
 <h1 align = "center"> Player </h1>
 
