@@ -10,8 +10,8 @@ class Player {
         this.x = 0;
         this.y = 0;
         this.index = 0;
-        this.canvasWidth = 1000;
-        this.canvasHeight = 732;
+        this.canvasWidth = 927;
+        this.canvasHeight = 664;
 
         // Get the spriteshhett
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/SlimeSheet.png");

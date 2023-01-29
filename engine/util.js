@@ -1,6 +1,8 @@
 /** Global Parameters Object */
 const PARAMS = { 
-    SCALE: 3
+    SCALE: 3,
+    CANVAS_WIDTH: 927,
+    CANVAS_HEIGHT: 664
 };
 
 /**
