@@ -5,6 +5,11 @@ const ASSET_MANAGER = new AssetManager();
 ASSET_MANAGER.queueDownload("./sprites/SlimeSheet.png")
 ASSET_MANAGER.queueDownload("./sprites/SlimeBallSheet.png")
 
+// Properties
+this.slimeBallLimit = 16;
+this.NumberOfPlayers = 1;
+this.playerColors = [];
+
 ASSET_MANAGER.downloadAll(() => {
 
     // Get teh canvas and the context.
@@ -14,8 +19,15 @@ ASSET_MANAGER.downloadAll(() => {
     // Add the Character
     gameEngine.addEntity(new Player(gameEngine));
 
-    // Add a slimeball
-    gameEngine.addEntity(new SlimeBall(gameEngine, 250, 250, "red"));
+    // Generate SlimeBalls for each player
+    for(i = 0; i < this.NumberOfPlayers; i++) {
+        for(j = 0; j < this.slimeBallLimit; j++) {
+            x = Math.floor(Math.random() * PARAMS.CANVAS_WIDTH)
+            y = Math.floor(Math.random() * PARAMS.CANVAS_HEIGHT)
+            gameEngine.addEntity(new SlimeBall(gameEngine, x, y, "red"));
+        }
+    }
+
 
     // Put the context into the game engine
 	gameEngine.init(ctx);
