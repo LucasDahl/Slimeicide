@@ -2,10 +2,10 @@
 class Animator {
 
     // This is the constructor for the character
-    constructor(spritesheet, xStart, yStart, width, height, frameCount, frameDuration) {
+    constructor(spritesheet, xStart, yStart, width, height, frameCount, frameDuration, loop) {
 
         // Copy all of the paramters into the object.
-        Object.assign(this, {spritesheet, xStart, yStart, width, height, frameCount, frameDuration});
+        Object.assign(this, {spritesheet, xStart, yStart, width, height, frameCount, frameDuration, loop});
 
         // Set the fields
         this.elapsedTime = 0;
@@ -17,6 +17,13 @@ class Animator {
 
         // Properties
         this.elapsedTime += tick;
+        if (this.isDone()) {
+            if (this.loop) {
+                this.elapsedTime -= this.totalTime;
+            } else {
+                return;
+            }
+        }
         const frame = this.currentFrame();
 
         // Reset the time so the animation loops

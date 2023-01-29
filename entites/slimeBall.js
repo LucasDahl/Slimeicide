@@ -17,26 +17,26 @@ class SlimeBall {
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/SlimeBallSheet.png");
 
         // Create the correct color SlimeBall
-        switch(color) {
-            case "red":
-                this.sheetY = 0;
-            case "orange":
-                this.sheetY = 16;
-            case "yellow":
-                this.sheetY = 32;
-            case "green":
-                this.sheetY = 48;
-            case "blue":
-                this.sheetY = 64;
-            case "white":
-                this.sheetY = 80;
-            case "purple":
-                this.sheetY = 96;
-            case "pink":
-                this.sheetY = 112;
-            default:
-                this.sheetY = 128;
-        }
+        // switch(color) {
+        //     case "red":
+        //         this.sheetY = 0;
+        //     case "orange":
+        //         this.sheetY = 16;
+        //     case "yellow":
+        //         this.sheetY = 32;
+        //     case "green":
+        //         this.sheetY = 48;
+        //     case "blue":
+        //         this.sheetY = 64;
+        //     case "white":
+        //         this.sheetY = 80;
+        //     case "purple":
+        //         this.sheetY = 96;
+        //     case "pink":
+        //         this.sheetY = 112;
+        //     default:
+        //         this.sheetY = 128;
+        // }
 
         // Get the animations
         this.animations = [];
@@ -47,7 +47,7 @@ class SlimeBall {
     getAnimations() {
 
         // Hover
-        this.animations[0] =  new Animator(this.spritesheet, this.sheetX, this.sheetY, 16, 16, 4, 0.2);
+        this.animations[0] =  new Animator(this.spritesheet, this.sheetX, this.sheetY, 16, 16, 4, 0.2, true);
 
     };
 
