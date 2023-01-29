@@ -2,7 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Game Project Title Goes Here</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <title>Slimeicide</title>
   
     <script type="text/javascript" src="./engine/assetmanager.js"></script>
     <script type="text/javascript" src="./engine/timer.js"></script>
@@ -15,6 +17,37 @@
     
 </head>
 <body>
-    <canvas id="gameWorld" width="1024" height="768" style="background: white; border: 1px solid black; position: relative; margin: auto;" tabindex="0" autofocus></canvas>
+
+    <!-- Title -->
+    <p class = "sectionHead">Harvest</p>
+
+    <!-- Canvas -->
+    <canvas id="gameWorld" width="768" height="768" tabindex="0" autofocus></canvas>
+
+    <!-- Info under Screen -->
+
+    <div class = "patchNotes">
+        <p class = "sectionHead">Patch notes [1/28/23]</p>
+        <li class = "bullets">Added controls and info on main</li>
+        <li class = "bullets">Centered Game screen</li>
+    </div>
+
+    <div class = "controls">
+        <p class = "sectionHead">Controls</p>
+        <li class = "bullets"><b>[WASD]</b> - [W] moves up, [A] moves left, [S] moves down, [D] moves right</li>
+    </div>
+
+    <div class = "gameplay">
+        <p class = "sectionHead">Gameplay</p>
+        <li class = "bullets"><b>[Move]</b> - Simply walk around the screen</li>
+        <li class = "bullets"><b>[Future]</b> - Collect slime balls</li>
+    </div>
+    
+    <div class = "credits">
+        <p class = "sectionHead">Credits</p>
+        <li class = "bullets"><b>[Lucas Dahl]</b> - Programming and style</li>
+    </div>
+
+    <!-- End info under Screen -->
 </body>
 </html>

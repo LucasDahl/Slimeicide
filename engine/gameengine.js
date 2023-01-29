@@ -64,6 +64,11 @@ class GameEngine {
             this.wheel = e;
         });
 
+        this.ctx.canvas.addEventListener("keydown", function(event) {
+            event.preventDefault();
+            this.space = e; // Prevent space bar scrolling
+          })
+
         this.ctx.canvas.addEventListener("contextmenu", e => {
             if (this.options.debugging) {
                 console.log("RIGHT_CLICK", getXandY(e));
