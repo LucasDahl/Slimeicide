@@ -5,8 +5,10 @@ class SlimeBall {
     constructor(game, x, y, color) {
 
         // Properties
+        this.game = game;
         this.x = x;
         this.y = y;
+        this.index = 0;
         this.color = color;
 
         // Get the spriteshhett
@@ -34,6 +36,6 @@ class SlimeBall {
     draw(ctx) {
 
         // Draw the animations
-        this.animations[this.index].drawFrame(this.game.clockTick, ctx, this.x, this.y);
+        this.animations[this.index].drawFrame(this.game.clockTick, ctx, this.x, this.y,  PARAMS.SCALE);
     };
 }

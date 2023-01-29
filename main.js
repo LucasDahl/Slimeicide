@@ -14,6 +14,9 @@ ASSET_MANAGER.downloadAll(() => {
     // Add the Character
     gameEngine.addEntity(new Player(gameEngine));
 
+    // Add a slimeball
+    gameEngine.addEntity(new SlimeBall(gameEngine, 250, 250, "red"));
+
     // Put the context into the game engine
 	gameEngine.init(ctx);
 
