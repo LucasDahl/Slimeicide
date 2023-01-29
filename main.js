@@ -17,7 +17,7 @@ ASSET_MANAGER.downloadAll(() => {
 	const ctx = canvas.getContext("2d");
 
     // Add the Character
-    gameEngine.addEntity(new Player(gameEngine));
+    gameEngine.addEntity(new Player(gameEngine, "red"));
 
     // Generate SlimeBalls for each player
     for(i = 0; i < this.NumberOfPlayers; i++) {
