@@ -2,7 +2,7 @@
 class Player {
 
     // This is the constructor for the character
-    constructor(game) {
+    constructor(game, color) {
 
         // Properties
         this.game = game;
@@ -12,6 +12,7 @@ class Player {
         this.index = 0;
         this.canvasWidth = 927;
         this.canvasHeight = 664;
+        this.color = color;
 
         // Get the spriteshhett
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/SlimeSheet.png");
