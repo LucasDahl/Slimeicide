@@ -54,9 +54,15 @@ canvas {
     padding-bottom: 1%;
 }
 
-.credits {
+.roadmap {
     background-color: #24d0f2;
     border: 2px solid #4dffd2;
+    padding-bottom: 1%;
+}
+
+.credits {
+    background-color: #cee9f2;
+    border: 2px solid #ffffff;
     padding-bottom: 1%;
 }
 
