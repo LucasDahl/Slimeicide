@@ -83,16 +83,16 @@ class Player {
         }
 
         // Update based on player movement.
-        if (this.game.keys["d"] || this.game.keys["D"]) {
+        if (this.game.keys["d"] || this.game.keys["D"] && !this.game.gameOver) {
             this.x += this.speed * this.game.clockTick;
            this.index = 1;
-        } else if (this.game.keys["a"] || this.game.keys["A"]) {
+        } else if (this.game.keys["a"] || this.game.keys["A"] && !this.game.gameOver) {
             this.x -= this.speed * this.game.clockTick;
            this.index = 3;
-        } else if (this.game.keys["w"] || this.game.keys["W"]) {
+        } else if (this.game.keys["w"] || this.game.keys["W"] && !this.game.gameOver) {
             this.y -= this.speed * this.game.clockTick;
             this.index = 5;
-        } else if (this.game.keys["s"] || this.game.keys["S"]) {
+        } else if (this.game.keys["s"] || this.game.keys["S"] && !this.game.gameOver) {
             this.y += this.speed * this.game.clockTick;
             this.index = 1;
         } else {
@@ -126,7 +126,6 @@ class Player {
                 entity.removeFromWorld = true;
             } 
         });
-
     };
 
     // This method will draw the Character.

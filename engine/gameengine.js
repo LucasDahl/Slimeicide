@@ -111,6 +111,16 @@ class GameEngine {
                 this.entities.splice(i, 1);
             }
         }
+
+        // Check if there are any Slime Balls left
+        for (let i = 0; i < entitiesCount; i++) {
+            let entity = this.entities[i];
+
+            if (entity instanceof SlimeBall) {
+                // Game is over
+            }
+        }
+
     };
 
     loop() {
