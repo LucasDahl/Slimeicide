@@ -13,9 +13,42 @@ class Player {
         this.canvasWidth = 927;
         this.canvasHeight = 664;
         this.color = color;
+        this.sheetX = 0;
+        this.sheetY = 0;
 
         // Get the spriteshhett
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/SlimeSheet.png");
+
+        // Create the correct color SlimeBall
+        switch(this.color) {
+            case "red":
+                this.sheetY = 0;
+                break;
+            case "orange":
+                this.sheetY = 32;
+                break;
+            case "yellow":
+                this.sheetY = 64;
+                break;
+            case "green":
+                this.sheetY = 96;
+                break;
+            case "blue":
+                this.sheetY = 128;
+                break;
+            case "white":
+                this.sheetY = 160;
+                break;
+            case "purple":
+                this.sheetY = 192;
+                break;
+            case "pink":
+                this.sheetY = 228;
+                break;
+            default:
+                this.sheetY = 256;
+                break;
+        }
 
         // Get the animations
         this.animations = [];
@@ -26,22 +59,22 @@ class Player {
     getAnimations() {
 
         // looking right idle
-        this.animations[0] =  new Animator(this.spritesheet, 0, 0, 32, 32, 1, 1000, true);
+        this.animations[0] =  new Animator(this.spritesheet, 0, this.sheetY, 32, 32, 1, 1000, true);
 
         // Moving right 
-        this.animations[1] =  new Animator(this.spritesheet, 0, 0, 32, 32, 2,  0.5, true);
+        this.animations[1] =  new Animator(this.spritesheet, 0, this.sheetY, 32, 32, 2,  0.5, true);
 
         // Left Idle
-        this.animations[2] =  new Animator(this.spritesheet, 64, 0, 32, 32, 1,  1000, true);
+        this.animations[2] =  new Animator(this.spritesheet, 64, this.sheetY, 32, 32, 1,  1000, true);
 
         // Moving left
-        this.animations[3] =  new Animator(this.spritesheet, 64, 0, 32, 32, 2,  0.5, true);
+        this.animations[3] =  new Animator(this.spritesheet, 64, this.sheetY, 32, 32, 2,  0.5, true);
 
         // Back Idle
-        this.animations[4] =  new Animator(this.spritesheet, 128, 0, 32, 32, 1,  1000, true);
+        this.animations[4] =  new Animator(this.spritesheet, 128, this.sheetY, 32, 32, 1,  1000, true);
 
         // Moving back
-        this.animations[5] =  new Animator(this.spritesheet, 128, 0, 32, 32, 2,  0.5, true);
+        this.animations[5] =  new Animator(this.spritesheet, 128, this.sheetY, 32, 32, 2,  0.5, true);
 
     }
 
