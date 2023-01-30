@@ -21,6 +21,9 @@ class Player {
         // Get the spriteshhett
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/SlimeSheet.png");
 
+        // Update the bounding box
+        this.updateBB();
+
         // Update the score
         this.updateScore();
 
@@ -33,24 +36,30 @@ class Player {
     getAnimations() {
 
         // looking right idle
-        this.animations[0] =  new Animator(this.spritesheet, 0, this.sheetY, 32, 32, 1, 1000, true);
+        this.animations[0] =  new Animator(this.spritesheet, 16, this.sheetY, 16, 16, 1, 1000, true);
 
         // Moving right 
-        this.animations[1] =  new Animator(this.spritesheet, 0, this.sheetY, 32, 32, 2,  0.5, true);
+        this.animations[1] =  new Animator(this.spritesheet, 0, this.sheetY, 16, 16, 2,  0.5, true);
 
         // Left Idle
-        this.animations[2] =  new Animator(this.spritesheet, 64, this.sheetY, 32, 32, 1,  1000, true);
+        this.animations[2] =  new Animator(this.spritesheet, 32, this.sheetY, 16, 16, 1,  1000, true);
 
         // Moving left
-        this.animations[3] =  new Animator(this.spritesheet, 64, this.sheetY, 32, 32, 2,  0.5, true);
+        this.animations[3] =  new Animator(this.spritesheet, 32, this.sheetY, 16, 16, 2,  0.5, true);
 
         // Back Idle
-        this.animations[4] =  new Animator(this.spritesheet, 128, this.sheetY, 32, 32, 1,  1000, true);
+        this.animations[4] =  new Animator(this.spritesheet, 64, this.sheetY, 16, 16, 1,  1000, true);
 
         // Moving back
-        this.animations[5] =  new Animator(this.spritesheet, 128, this.sheetY, 32, 32, 2,  0.5, true);
+        this.animations[5] =  new Animator(this.spritesheet, 64, this.sheetY, 16, 16, 2,  0.5, true);
 
     }
+
+    // The players bounding box
+    updateBB() {
+        this.lastBB = this.BB;
+        this.BB = new BoundingBox(this.x, this.y, PARAMS.PLAYER_WIDTH, PARAMS.PLAYER_HEIGHT);
+    };
 
     // This is the update method called on each frame.
     update() {
@@ -103,8 +112,20 @@ class Player {
             this.changeColor();
         }
 
+        // Update the bounding box
+        this.updateBB();
+
         // Update the score
         this.updateScore();
+
+        // collision
+        var that = this;
+        this.game.entities.forEach(function (entity) {
+            if (entity.BB && that.BB.collide(entity.BB) && entity instanceof SlimeBall) {
+                that.score += 1;
+                entity.removeFromWorld = true;
+            } 
+        });
 
     };
 
@@ -112,6 +133,10 @@ class Player {
     draw(ctx) {
         // Draw the animations
         this.animations[this.index].drawFrame(this.game.clockTick, ctx, this.x, this.y, PARAMS.SCALE);
+
+        // Draw BB
+        // ctx.strokeStyle = 'Red';
+        // ctx.strokeRect(this.BB.x, this.BB.y, this.BB.width, this.BB.height);
     };
 
 
@@ -133,28 +158,28 @@ class Player {
                 this.sheetY = 0;
                 break;
             case "orange":
-                this.sheetY = 32;
+                this.sheetY = 16;
                 break;
             case "yellow":
-                this.sheetY = 64;
+                this.sheetY = 32;
                 break;
             case "green":
-                this.sheetY = 96;
+                this.sheetY = 48;
                 break;
             case "blue":
-                this.sheetY = 128;
+                this.sheetY = 64;
                 break;
             case "white":
-                this.sheetY = 160;
+                this.sheetY = 80;
                 break;
             case "purple":
-                this.sheetY = 192;
+                this.sheetY = 96;
                 break;
             case "pink":
-                this.sheetY = 224;
+                this.sheetY = 112;
                 break;
             default:
-                this.sheetY = 256;
+                this.sheetY = 128;
                 break;
         }
 

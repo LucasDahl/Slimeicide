@@ -18,6 +18,9 @@ class SlimeBall {
         // Get the spriteshhett
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/SlimeBallSheet.png");
 
+        // Update the bounding box
+        this.updateBB();
+
         // Get the animations
         this.animations = [];
         this.getAnimations();
@@ -31,6 +34,12 @@ class SlimeBall {
 
     };
 
+     // The slime balls bounding box
+     updateBB() {
+        this.lastBB = this.BB;
+        this.BB = new BoundingBox(this.x, this.y, PARAMS.SLIME_BALL_WIDTH, PARAMS.SLIME_BALL_HEIGHT);
+    };
+
     // This is the update method called on each frame.
     update() {
 
@@ -39,6 +48,9 @@ class SlimeBall {
             this.changeColor();
         }
 
+        // Update the bounding box
+        this.updateBB();
+
     };
 
     // This method will draw the Character.
@@ -46,6 +58,10 @@ class SlimeBall {
 
         // Draw the animations
         this.animations[this.index].drawFrame(this.game.clockTick, ctx, this.x, this.y,  PARAMS.SCALE);
+
+        // Draw BB box
+        // ctx.strokeStyle = 'Red';
+        // ctx.strokeRect(this.BB.x, this.BB.y, this.BB.width, this.BB.height);
     };
 
         // Change the slime ball color
