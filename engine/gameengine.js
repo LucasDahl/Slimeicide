@@ -8,6 +8,7 @@ class GameEngine {
 
         // Everything that will be updated and drawn each frame
         this.entities = [];
+        this.player = null
 
         // Information on the input
         this.click = null;
@@ -113,12 +114,8 @@ class GameEngine {
         }
 
         // Check if there are any Slime Balls left
-        for (let i = 0; i < entitiesCount; i++) {
-            let entity = this.entities[i];
-
-            if (entity instanceof SlimeBall) {
-                // Game is over
-            }
+        if(this.checkGameStatus(entitiesCount)) {
+            document.getElementById("score").innerHTML = "Game Over! Your score is: " + this.player.score;
         }
 
     };
@@ -129,4 +126,18 @@ class GameEngine {
         this.draw();
     };
 
+    // Check if the game is over
+    checkGameStatus(entitiesCount) {
+
+        for (let i = 0; i < entitiesCount; i++) {
+            let entity = this.entities[i];
+
+            if (entity instanceof SlimeBall) {
+                return false;
+            }
+        }
+
+        return true;
+
+    }
 };

@@ -194,7 +194,7 @@ class Player {
         // Set the current color
         this.currentColor = this.newColor;
     
-        
+
         // Get the new animations for the new color
         this.animations = [];
         this.getAnimations();
