@@ -2,7 +2,7 @@
 class Player {
 
     // This is the constructor for the character
-    constructor(game, color) {
+    constructor(game) {
 
         // Properties
         this.game = game;
@@ -12,43 +12,14 @@ class Player {
         this.index = 0;
         this.canvasWidth = 927;
         this.canvasHeight = 664;
-        this.color = color;
+        this.color = ["red", "orange", "yellow", "green", "blue", "white", "purple", "pink"];
         this.sheetX = 0;
         this.sheetY = 0;
+        this.num = 0;
 
         // Get the spriteshhett
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/SlimeSheet.png");
 
-        // Create the correct color SlimeBall
-        switch(this.color) {
-            case "red":
-                this.sheetY = 0;
-                break;
-            case "orange":
-                this.sheetY = 32;
-                break;
-            case "yellow":
-                this.sheetY = 64;
-                break;
-            case "green":
-                this.sheetY = 96;
-                break;
-            case "blue":
-                this.sheetY = 128;
-                break;
-            case "white":
-                this.sheetY = 160;
-                break;
-            case "purple":
-                this.sheetY = 192;
-                break;
-            case "pink":
-                this.sheetY = 228;
-                break;
-            default:
-                this.sheetY = 256;
-                break;
-        }
 
         // Get the animations
         this.animations = [];
@@ -123,6 +94,13 @@ class Player {
                 this.index = 4;
             } 
         }
+
+        // Let the player change the color
+        if(this.game.keys["c"] || this.game.keys["C"]) {
+            this.changeColor();
+        }
+        
+
     };
 
     // This method will draw the Character.
@@ -130,4 +108,53 @@ class Player {
         // Draw the animations
         this.animations[this.index].drawFrame(this.game.clockTick, ctx, this.x, this.y, PARAMS.SCALE);
     };
+
+
+    // Change the player color
+    changeColor() {
+
+        // Make sure the num doesn go out of bounds
+        if(this.num === (this.color.length - 1)) {
+            this.num = 0;
+        }
+
+        // Properties
+        this.num += 1;
+        this.newColor = this.color[this.num];
+
+        // Create the correct color SlimeBall
+        switch(this.newColor) {
+            case "red":
+                this.sheetY = 0;
+                break;
+            case "orange":
+                this.sheetY = 32;
+                break;
+            case "yellow":
+                this.sheetY = 64;
+                break;
+            case "green":
+                this.sheetY = 96;
+                break;
+            case "blue":
+                this.sheetY = 128;
+                break;
+            case "white":
+                this.sheetY = 160;
+                break;
+            case "purple":
+                this.sheetY = 192;
+                break;
+            case "pink":
+                this.sheetY = 224;
+                break;
+            default:
+                this.sheetY = 256;
+                break;
+        }
+
+        // Get the new animations for the new color
+        this.animations = [];
+        this.getAnimations();
+    }
 }
