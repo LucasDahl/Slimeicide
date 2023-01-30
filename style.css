@@ -60,9 +60,21 @@ canvas {
     padding-bottom: 1%;
 }
 
-.credits {
+.colors {
     background-color: #cee9f2;
     border: 2px solid #ffffff;
+    padding-bottom: 1%;
+}
+
+.credits {
+    background-color: #a173ff;
+    border: 2px solid #ee99ff;
+    padding-bottom: 1%;
+}
+
+.thankyou {
+    background-color: #ff80d5;
+    border: 2px solid #ff80d5;
     padding-bottom: 1%;
 }
 
