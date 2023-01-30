@@ -151,13 +151,15 @@ class Player {
     // Change the player color
     changeColor() {
 
+        // Properties
+        this.num += 1;
+
+
         // Make sure the num doesn go out of bounds
         if(this.num === (this.color.length - 1)) {
             this.num = 0;
         }
-
-        // Properties
-        this.num += 1;
+        
         this.newColor = this.color[this.num];
 
         // Create the correct color SlimeBall
