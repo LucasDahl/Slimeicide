@@ -15,11 +15,14 @@ class Player {
         this.color = ["red", "orange", "yellow", "green", "blue", "white", "purple", "pink"];
         this.sheetX = 0;
         this.sheetY = 0;
+        this.score = 0;
         this.num = 0;
 
         // Get the spriteshhett
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/SlimeSheet.png");
 
+        // Update the score
+        this.updateScore();
 
         // Get the animations
         this.animations = [];
@@ -99,7 +102,9 @@ class Player {
         if(this.game.keys["c"] || this.game.keys["C"]) {
             this.changeColor();
         }
-        
+
+        // Update the score
+        this.updateScore();
 
     };
 
@@ -156,5 +161,10 @@ class Player {
         // Get the new animations for the new color
         this.animations = [];
         this.getAnimations();
+    }
+
+    // Update the palyer score
+    updateScore() {
+        document.getElementById("score").innerHTML = "Score: " + this.score;
     }
 }
