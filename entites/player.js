@@ -2,7 +2,7 @@
 class Player {
 
     // This is the constructor for the character
-    constructor(game) {
+    constructor(game, color) {
 
         // Properties
         this.game = game;
@@ -17,6 +17,7 @@ class Player {
         this.sheetY = 0;
         this.score = 0;
         this.num = 0;
+        this.currentColor = color
 
         // Get the spriteshhett
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/SlimeSheet.png");
@@ -122,7 +123,15 @@ class Player {
         var that = this;
         this.game.entities.forEach(function (entity) {
             if (entity.BB && that.BB.collide(entity.BB) && entity instanceof SlimeBall) {
-                that.score += 1;
+
+                // Figure out if a point is earned or deducted
+                if(entity.currentColor === that.currentColor) {
+                    that.score += 1;
+                } else {
+                    that.score -= 1;
+                }
+
+                // Remove slime ball fromt the world
                 entity.removeFromWorld = true;
             } 
         });
@@ -182,6 +191,10 @@ class Player {
                 break;
         }
 
+        // Set the current color
+        this.currentColor = this.newColor;
+    
+        
         // Get the new animations for the new color
         this.animations = [];
         this.getAnimations();
