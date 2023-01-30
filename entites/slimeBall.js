@@ -13,6 +13,8 @@ class SlimeBall {
         this.sheetX = 0;
         this.sheetY = 0;
         this.num = 0;
+        this.boudningBoxXOffset = 10;
+        this.boundingBoxYOffset = 15;
         this.color = ["red", "orange", "yellow", "green", "blue", "white", "purple", "pink"];
 
         // Get the spriteshhett
@@ -37,7 +39,7 @@ class SlimeBall {
      // The slime balls bounding box
      updateBB() {
         this.lastBB = this.BB;
-        this.BB = new BoundingBox(this.x, this.y, PARAMS.SLIME_BALL_WIDTH, PARAMS.SLIME_BALL_HEIGHT);
+        this.BB = new BoundingBox(this.x + this.boudningBoxXOffset, this.y + this.boundingBoxYOffset, PARAMS.SLIME_BALL_WIDTH - (2 * this.boudningBoxXOffset), PARAMS.SLIME_BALL_HEIGHT - this.boundingBoxYOffset);
     };
 
     // This is the update method called on each frame.
