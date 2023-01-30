@@ -13,6 +13,7 @@ class SlimeBall {
         this.sheetX = 0;
         this.sheetY = 0;
         this.num = 0;
+        this.currentColor = color;
         this.boudningBoxXOffset = 10;
         this.boundingBoxYOffset = 15;
         this.color = ["red", "orange", "yellow", "green", "blue", "white", "purple", "pink"];
@@ -46,7 +47,7 @@ class SlimeBall {
     update() {
 
         // Change the slime ball color with c for now
-        if(this.game.keys["c"] || this.game.keys["C"]) {
+        if(Math.random() < 0.025) {
             this.changeColor();
         }
 
@@ -66,50 +67,48 @@ class SlimeBall {
         // ctx.strokeRect(this.BB.x, this.BB.y, this.BB.width, this.BB.height);
     };
 
-        // Change the slime ball color
-        changeColor() {
+    // Change the slime ball color
+    changeColor() {
 
-            // Make sure the num doesn go out of bounds
-            if(this.num === (this.color.length - 1)) {
-                this.num = 0;
-            }
+        // Properties
+        this.num = Math.floor(Math.random() * (this.color.length));
+        this.newColor = this.color[this.num];
     
-            // Properties
-            this.num += 1;
-            this.newColor = this.color[this.num];
-    
-            switch(this.newColor) {
-                case "red":
-                    this.sheetY = 0;
-                    break;
-                case "orange":
-                    this.sheetY = 16;
-                    break;
-                case "yellow":
-                    this.sheetY = 32;
-                    break;
-                case "green":
-                    this.sheetY = 48;
-                    break;
-                case "blue":
-                    this.sheetY = 64;
-                    break;
-                case "white":
-                    this.sheetY = 80;
-                    break;
-                case "purple":
-                    this.sheetY = 96;
-                    break;
-                case "pink":
-                    this.sheetY = 112;
-                    break;
-                default:
-                    this.sheetY = 128;
-                    break;
+        switch(this.newColor) {
+            case "red":
+                this.sheetY = 0;
+                break;
+            case "orange":
+                this.sheetY = 16;
+                break;
+            case "yellow":
+                this.sheetY = 32;
+                break;
+            case "green":
+                 this.sheetY = 48;
+                break;
+           case "blue":
+                this.sheetY = 64;
+                break;
+            case "white":
+                this.sheetY = 80;
+                break;
+            case "purple":
+                this.sheetY = 96;
+                break;
+            case "pink":
+                this.sheetY = 112;
+                break;
+            default:
+                this.sheetY = 128;
+                break;
             }
+
+            // Set the current color
+            this.currentColor = this.newColor;
     
             // Get the new animations for the new color
-            this.animations = [];
+            //this.animations = [];
             this.getAnimations();
         }
 }
