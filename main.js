@@ -37,3 +37,19 @@ ASSET_MANAGER.downloadAll(() => {
     // Start the game engine.
 	gameEngine.start();
 });
+
+// ====================
+// Methods
+// ====================
+
+// CHange the players color
+function changeColor() {
+    gameEngine.player.changeColor();
+}
+
+
+// Get the username for the player
+function getUsername() {
+    this.username = document.getElementById("userName").value;
+}
+

@@ -18,6 +18,7 @@ class Player {
         this.score = 0;
         this.num = 0;
         this.currentColor = color
+        this.username = "";
 
         // Get the spriteshhett
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/SlimeSheet.png");
@@ -84,16 +85,16 @@ class Player {
         }
 
         // Update based on player movement.
-        if (this.game.keys["d"] || this.game.keys["D"] && !this.game.gameOver) {
+        if (this.game.keys["d"] || this.game.keys["D"]) {
             this.x += this.speed * this.game.clockTick;
            this.index = 1;
-        } else if (this.game.keys["a"] || this.game.keys["A"] && !this.game.gameOver) {
+        } else if (this.game.keys["a"] || this.game.keys["A"]) {
             this.x -= this.speed * this.game.clockTick;
            this.index = 3;
-        } else if (this.game.keys["w"] || this.game.keys["W"] && !this.game.gameOver) {
+        } else if (this.game.keys["w"] || this.game.keys["W"]) {
             this.y -= this.speed * this.game.clockTick;
             this.index = 5;
-        } else if (this.game.keys["s"] || this.game.keys["S"] && !this.game.gameOver) {
+        } else if (this.game.keys["s"] || this.game.keys["S"]) {
             this.y += this.speed * this.game.clockTick;
             this.index = 1;
         } else {
@@ -159,7 +160,7 @@ class Player {
         if(this.num === (this.color.length - 1)) {
             this.num = 0;
         }
-        
+
         this.newColor = this.color[this.num];
 
         // Create the correct color SlimeBall
