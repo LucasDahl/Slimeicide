@@ -27,6 +27,10 @@ class SlimeBall {
         // Get the animations
         this.animations = [];
         this.getAnimations();
+
+        // Randomly change the color
+        this.changeColor();
+
     };
 
     // This method will get all the animations.
