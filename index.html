@@ -30,9 +30,9 @@
     <!-- Change username button -->
     <button type = "button" onclick = "getUsername()">Change name</button>
 
-    <!-- Change username button 
-    <button type = "button" onclick = "changeColor()">Change color</button>
-    -->
+    <!-- Change username button -->
+    <button id = "start" type = "button" onclick = "spawnSlimes()">Start Game</button>
+    
 
     <!-- Canvas -->
     <canvas id="gameWorld" width="1000" height="768" tabindex="0" autofocus></canvas>
@@ -54,6 +54,7 @@
 
     <div class = "gameplay">
         <p class = "sectionHead">Gameplay</p>
+        <li class = "bullets"><b>[Start and Restart]</b> - Start or Restart the game with the start button</li>
         <li class = "bullets"><b>[Goal]</b> - Simply walk around the screen and pickup Slime Balls</li>
         <li class = "bullets"><b>[Matching Slime Ball]</b> - Change color to match the slime ball to gain a point</li>
         <li class = "bullets"><b>[Non-Matching Slime Ball]</b> - If you collect a slime that is a different color you lose a point</li>

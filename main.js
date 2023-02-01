@@ -7,7 +7,7 @@ ASSET_MANAGER.queueDownload("./sprites/SlimeBallSheet.png")
 
 // Properties
 this.slimeBallLimit = 16;
-this.NumberOfPlayers = 1;
+this.numberOfPlayers = 1;
 this.playerColors = [];
 
 ASSET_MANAGER.downloadAll(() => {
@@ -20,15 +20,6 @@ ASSET_MANAGER.downloadAll(() => {
     player = new Player(gameEngine, "red");
     gameEngine.addEntity(player);
     gameEngine.player = player;
-
-    // Generate SlimeBalls for each player
-    for(i = 0; i < this.NumberOfPlayers; i++) {
-        for(j = 0; j < this.slimeBallLimit; j++) {
-            x = Math.floor(Math.random() * PARAMS.CANVAS_WIDTH)
-            y = Math.floor(Math.random() * PARAMS.CANVAS_HEIGHT)
-            gameEngine.addEntity(new SlimeBall(gameEngine, x, y, "red"));
-        }
-    }
 
 
     // Put the context into the game engine
@@ -51,5 +42,42 @@ function changeColor() {
 // Get the username for the player
 function getUsername() {
     this.username = document.getElementById("userName").value;
+}
+
+// Spawn slimes
+function spawnSlimes() {
+
+    // Remove all slimeballs
+    if(gameEngine.entities.length > this.numberOfPlayers) {
+        this.despawnSlimes();
+    }
+
+    // Reset the player score
+    gameEngine.player.score = 0;
+
+    // Change the title of the button
+    document.getElementById("start").innerHTML = "Restart";
+
+    // Generate SlimeBalls for each player
+    for(i = 0; i < this.numberOfPlayers; i++) {
+        for(j = 0; j < this.slimeBallLimit; j++) {
+            x = Math.floor(Math.random() * PARAMS.CANVAS_WIDTH)
+            y = Math.floor(Math.random() * PARAMS.CANVAS_HEIGHT)
+            gameEngine.addEntity(new SlimeBall(gameEngine, x, y, "red"));
+        }
+    }
+}
+
+// Remove all current slimeballs from the game
+function despawnSlimes() {
+
+    for(i = 0; i < gameEngine.entities.length; i++) {
+
+        let entity = gameEngine.entities[i];
+
+        if(entity instanceof SlimeBall) {
+            entity.removeFromWorld = true;
+        }
+    }
 }
 
