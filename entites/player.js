@@ -199,7 +199,6 @@ class Player {
     
 
         // Get the new animations for the new color
-        this.animations = [];
         this.getAnimations();
     }
 
