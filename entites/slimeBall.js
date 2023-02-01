@@ -80,31 +80,31 @@ class SlimeBall {
     
         switch(this.newColor) {
             case "red":
-                this.sheetY = 0;
+                this.sheetY = 1;
                 break;
             case "orange":
-                this.sheetY = 16;
+                this.sheetY = 17;
                 break;
             case "yellow":
-                this.sheetY = 32;
+                this.sheetY = 33;
                 break;
             case "green":
-                 this.sheetY = 48;
+                 this.sheetY = 49;
                 break;
            case "blue":
-                this.sheetY = 64;
+                this.sheetY = 65;
                 break;
             case "white":
-                this.sheetY = 80;
+                this.sheetY = 81;
                 break;
             case "purple":
-                this.sheetY = 96;
+                this.sheetY = 97;
                 break;
             case "pink":
-                this.sheetY = 112;
+                this.sheetY = 113;
                 break;
             default:
-                this.sheetY = 128;
+                this.sheetY = 129;
                 break;
             }
 
