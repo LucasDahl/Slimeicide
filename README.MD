@@ -22,6 +22,6 @@ Walk Up: W <br>
 
 <h1 align = "center"> Slime Ball </h1>
 
-<p align = "center"> <img src="https://github.com/LucasDahl/Slimeicide/blob/main/images/slimeBallProfile.png" width="192" height="196"></p>
+<p align = "center"> <img src="https://github.com/LucasDahl/Slimeicide/blob/main/images/slimeBallProfile.png" width="128" height="64"></p>
 
 <p align = "center"> SlimeBalls are radnomly generated on the map. Each slime ball has a chance to change color radnomly. </p>
