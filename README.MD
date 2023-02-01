@@ -18,4 +18,4 @@ Walk Up: W <br>
 
 <p align = "center"> <img src="https://github.com/LucasDahl/Slimeicide/blob/main/sprites/SlimeProfileSheet.png" width="384" height="196"></p>
 
-<p align = "center"> Choose from 8 different player colors! </p>
+<p align = "center"> Change to one of 8 different colors to collect the slime ball as the correct color. </p>
