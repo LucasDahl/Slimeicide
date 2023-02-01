@@ -2,13 +2,13 @@
 class Player {
 
     // This is the constructor for the character
-    constructor(game, color) {
+    constructor(game, x, y, color) {
 
         // Properties
         this.game = game;
         this.speed = 50;
-        this.x = 0;
-        this.y = 0;
+        this.x = x;
+        this.y = y;
         this.index = 0;
         this.canvasWidth = 927;
         this.canvasHeight = 664;
