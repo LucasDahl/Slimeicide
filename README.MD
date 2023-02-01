@@ -16,8 +16,12 @@ Walk Up: W <br>
 
 <h1 align = "center"> Player </h1>
 
-<p align = "center"> <img src="https://github.com/LucasDahl/Slimeicide/blob/main/sprites/SlimeProfileSheet.png" width="384" height="196"></p>
+<p align = "center"> <img src="https://github.com/LucasDahl/Slimeicide/blob/main/sprites/SlimeProfileSheet.png" width="384" height="192"></p>
 
 <p align = "center"> Change to one of 8 different colors to collect a slime ball of the same color to gain a point. However collecting a slime when your color doesn't match results in losing a point. </p>
 
 <h1 align = "center"> Slime Ball </h1>
+
+<p align = "center"> <img src="https://github.com/LucasDahl/Slimeicide/blob/main/images/slimeBallProfile.png" width="192" height="196"></p>
+
+<p align = "center"> SlimeBalls are radnomly generated on the map. Each slime ball has a chance to change color radnomly. </p>
