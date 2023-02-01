@@ -18,4 +18,4 @@ Walk Up: W <br>
 
 <p align = "center"> <img src="https://github.com/LucasDahl/Slimeicide/blob/main/sprites/SlimeProfileSheet.png" width="384" height="196"></p>
 
-<p align = "center"> Change to one of 8 different colors to collect the slime ball as the correct color. </p>
+<p align = "center"> Change to one of 8 different colors to collect a slime ball of the same color to gain a point. However collecting a slime when your color doesn't match results in losing a point. </p>
